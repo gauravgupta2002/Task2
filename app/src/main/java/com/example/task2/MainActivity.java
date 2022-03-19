@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView itemRV;
     private ItemAdapter adapter;
     private ArrayList<ModalClass> itemModalArrayList,reqModalArrayList;
+    //private SearchView searchView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,16 +32,31 @@ public class MainActivity extends AppCompatActivity {
 
         itemRV = findViewById(R.id.listofitems);
         buildRecyclerView(req);
+
+        /*searchView = (SearchView) findViewById(R.id.searchView);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                if(reqModalArrayList.contains(query)){
+                    adapter.
+                }
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s) {
+                return false;
+            }
+        });*/
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.search_menu, menu);
-        MenuItem searchItem = menu.findItem(R.id.actionSearch);
+       // MenuInflater inflater = getMenuInflater();
+        //inflater.inflate(R.menu.search_menu, menu);
+       // MenuItem searchItem = menu.findItem(R.id.actionSearch);
 
-        SearchView searchView = (SearchView) searchItem.getActionView();
+        SearchView searchView = (SearchView)findViewById(R.id.searchView); //searchItem.getActionView();
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
